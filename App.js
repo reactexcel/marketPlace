@@ -4,7 +4,6 @@ import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
 import {store} from './redux/store';
 import { Provider } from "react-redux";
-console.log(store,"store");
 
 
 export default class App extends React.Component {

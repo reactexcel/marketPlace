@@ -3,7 +3,6 @@ import combineReducers from "./reducer";
 import createSagaMiddleware from "redux-saga";
 import rootSaga from "./saga";
 import logger from "redux-logger";
-console.log(combineReducers,"sectiondsadsadsa");
 
 const middleware = [];
 const sagaMiddleware = createSagaMiddleware();
