@@ -1,6 +1,6 @@
 import React from 'react';
 import { Platform } from 'react-native';
-import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+import { createStackNavigator, createMaterialTopTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
@@ -12,7 +12,14 @@ const HomeStack = createStackNavigator({
 });
 
 HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
+  tabBarLabel: 'General Information',
+  tabBarOptions: {
+    labelStyle: {
+      fontSize: 12,
+      padding:0,
+      margin:0,
+    },
+  },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -30,7 +37,14 @@ const LinksStack = createStackNavigator({
 });
 
 LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+  tabBarLabel: 'Description and Components',
+  tabBarOptions: {
+    labelStyle: {
+      fontSize: 12,
+      padding:0,
+      margin:0,
+    },
+  },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -44,7 +58,14 @@ const SettingsStack = createStackNavigator({
 });
 
 SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+  tabBarLabel: 'Information on the Issuer',
+  tabBarOptions: {
+    labelStyle: {
+      fontSize: 12,
+      padding:0,
+      margin:0,
+    },
+  },
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -53,7 +74,7 @@ SettingsStack.navigationOptions = {
   ),
 };
 
-export default createBottomTabNavigator({
+export default createMaterialTopTabNavigator({
   HomeStack,
   LinksStack,
   SettingsStack,

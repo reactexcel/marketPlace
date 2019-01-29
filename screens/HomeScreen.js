@@ -4,15 +4,17 @@ import {
   View,
 } from 'react-native';
 import { WebBrowser } from 'expo';
+import { connect } from 'react-redux';
 
 import { MonoText } from '../components/StyledText';
 
-export default class HomeScreen extends React.Component {
+class HomeScreen extends React.Component {
   static navigationOptions = {
-    header: null,
+    header:null
   };
-
   render() {
+    console.log(this.props.lang,"console");
+    
     return (
       <View>
         <Text>
@@ -22,3 +24,10 @@ export default class HomeScreen extends React.Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+      lang: state
+  }
+}
+
+export default connect(mapStateToProps,null)(HomeScreen);
