@@ -16,6 +16,9 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "android": {
+      "package": "com.marketplace"
+    },
     "updates": {
       "fallbackToCacheTimeout": 0
     },

@@ -1,7 +1,6 @@
 import React from 'react';
 import { createAppContainer, createSwitchNavigator, createStackNavigator } from 'react-navigation';
 import MainScreen from '../screens/MainScreen';
-import HomeScreen from '../screens/HomeScreen';
 import CreativeTabNavigator from './CreativeTabNavigator';
 import { View, Text, TouchableOpacity } from 'react-native';
 import Layout from '../constants/Layout';
@@ -15,13 +14,13 @@ const Home = createStackNavigator({
 export default createAppContainer(createStackNavigator({
   // You could add another route here for authentication.
   // Read more at https://reactnavigation.org/docs/en/auth-flow.html
-  // Main: MainScreen,
+  Main: MainScreen,
   CreativeThinking: {
     screen:CreativeTabNavigator,
     navigationOptions: ({ navigation }) => ({
       title: 'Creative Thinking',
       headerRight:(
-        <TouchableOpacity onPress={() => store.dispatch(openInvestModel())}>
+        <TouchableOpacity onPress={() => store.dispatch(openInvestModel(true))}>
           <View style={{
             marginRight:Layout.sPadding,
             padding:Layout.sPadding,

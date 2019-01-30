@@ -11,7 +11,7 @@ const initialState = {
 const openInvestModal = (state, action) =>
  update(state, {
     general: {
-        isOpenModal:{ $set: true },
+        isOpenModal:{ $set: action.payload },
     }
  });
 

@@ -11,4 +11,6 @@ export default {
   isSmallDevice: width < 375,
   sPadding:10,
   xsPadding:5,
+  lPadding:15,
+  xLPadding:20,
 };
