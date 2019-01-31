@@ -32,7 +32,13 @@ class GeneralInformation extends React.Component {
 
   render() {
     console.log(this.props.modal);
-    
+    const data = [{
+      title:'Final Terms',
+      percentage:'11%'
+    },{
+        title:'KIID English',
+        percentage:'12%'
+    }]
     return (
       <View>
       <ScrollView>
@@ -49,7 +55,15 @@ class GeneralInformation extends React.Component {
               selected={this.state.riskSelected}
             />
           </View>
-          <LegalDocument/>
+            <LegalDocument
+              data={data}
+              onPress={()=>{}}
+              icon={false}
+              text={false}
+              headingMainTitle='Legal Documents'
+              headingTitle=''
+              stylePadding={{padding:10}}
+            />
         </View>
         
       </ScrollView>

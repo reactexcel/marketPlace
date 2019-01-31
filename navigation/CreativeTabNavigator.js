@@ -4,7 +4,7 @@ import { createStackNavigator, createMaterialTopTabNavigator } from 'react-navig
 
 import TabBarIcon from '../components/TabBarIcon';
 import GeneralInformation from '../screens/GeneralInformation';
-import LinksScreen from '../screens/LinksScreen';
+import Description from '../screens/Description';
 import SettingsScreen from '../screens/SettingsScreen';
 
 const HomeStack = createStackNavigator({
@@ -33,7 +33,7 @@ HomeStack.navigationOptions = {
 };
 
 const LinksStack = createStackNavigator({
-  Links: LinksScreen,
+  Links: Description,
 });
 
 LinksStack.navigationOptions = {
