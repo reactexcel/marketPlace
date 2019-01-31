@@ -27,22 +27,14 @@ class GeneralInformation extends React.Component {
     this.state = {
       graphYear:0,
       riskSelected:0, 
-      disableModal:false
     }
   }
-  // componentWillReceiveProps(nextProps){
-  //   console.log(nextProps,this.props,"check");
-    
-  //   if(this.props.modal !== nextProps.modal){
-  //     this.refs.modal3.open()
-  //   }
-  // }
-  handleButton (){
-    this.setState({disableModal:!this.state.disableModal})
-    this.props.openInvestModel(false)
-  }
+
   render() {
+    console.log(this.props.modal);
+    
     return (
+      <View>
       <ScrollView>
         <View style={{flex:1}}>
           <View style={{padding:Layout.lPadding}}>
@@ -59,30 +51,64 @@ class GeneralInformation extends React.Component {
           </View>
           <LegalDocument/>
         </View>
-        <Modal style={[styles.modal, styles.modal3]} ref={"modal3"} position={"center"}  isDisabled={this.state.disableModal}>
-          <Text>Modal centered</Text>
-          <CustomButton onPress={()=>{this.handleButton}} >Disable</CustomButton>
-        </Modal>
+        
       </ScrollView>
-    );
+      <Modal 
+          swipeToClose={false} 
+          style={[styles.modal3]} 
+          ref={"modal3"} 
+          position={"center"} 
+          onClosed={()=>{this.props.openInvestModel(false)}} 
+          isOpen={this.props.modal}
+          > 
+            <View style={{flex:1,justifyContent:'space-between'}}>
+              <View style={{padding:Layout.sPadding}}>
+                <Text style={styles.modalTitle}>Invest in Creative Thinking</Text>
+                <Text style={{textAlign:'center', marginTop:Layout.sPadding}}>
+                  Choose the amount you want to invest...
+                </Text>
+              </View>
+              <View style={{alignSelf:'flex-end'}}>
+                <View style={{flexDirection:'row'}}>
+                    <CustomButton
+                      buttonStyle={{width:Layout.Window.width*0.325, borderRadius:5}}
+                      title='Invest'
+                      textStyle={{textAlign:'center'}}
+                      onPress={()=>{this.props.openInvestModel(false)}}>
+                      Disable
+                    </CustomButton>
+                    <CustomButton
+                      buttonStyle={{width:Layout.Window.width*0.325, borderRadius:5}}
+                      title='Cancel'
+                      textStyle={{textAlign:'center'}}
+                      onPress={()=>{this.props.openInvestModel(false)}}>
+                      Disable
+                    </CustomButton>
+                </View>
+              </View>
+            </View>
+        </Modal>
+      </View>
+      );
   }
 }
 
 const styles = StyleSheet.create({
-  modal: {
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
   modal3: {
-    height: 300,
-    width: 300
+    borderRadius:10,
+    height: 200,
+    width: Layout.Window.width * 0.65
   },
+  modalTitle: {
+    textAlign:'center',
+    fontSize:15,
+    fontWeight:'700'
+  }
 });
 
 const mapStateToProps = (state) => {
-  console.log(state,"condition");
   return {
-      model: state.navigation
+      modal: state.navigation.general.isOpenModal
   }
 }
 
