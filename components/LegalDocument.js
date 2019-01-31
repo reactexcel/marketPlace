@@ -40,7 +40,7 @@ export class LegalDocument extends React.Component {
                                 <View style={[styleFix,stylePadding]}>
                                     <Text style={[{paddingLeft:5},textStyleFix]}>{val.title}</Text>
                                     {icon?
-                                    <TouchableOpacity onPress={()=>this.props.onPress()}>
+                                    <TouchableOpacity onPress={()=>this.props.onPress(val)}>
                                         <FontAwesome
                                             style={{marginLeft:5,marginTop:3,fontSize:18}}
                                             name="info-circle"
@@ -48,7 +48,7 @@ export class LegalDocument extends React.Component {
                                     </TouchableOpacity>
                                     :null}
                                 </View>
-                                <View style={[styles.rowText,icon ? (i % 2 == 0 ? {backgroundColor:'green'} : {backgroundColor:'red'} ): {}]} >
+                                <View style={[styles.rowText,icon ? (i % 2 == 0 ? {backgroundColor:'#ff7675'} : {backgroundColor:'#e74c3c'} ): {}]} >
                                     {text?
                                     <Text style={textStyleFix}>
                                         {val.percentage}
@@ -83,13 +83,13 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         width:Layout.Window.width * 0.7,
         borderRightWidth:1,
-        backgroundColor:'green'
+        backgroundColor:'#ff7675'
     },
     odd:{
         flexDirection:'row',
         width:Layout.Window.width * 0.7,
         borderRightWidth:1,
-        backgroundColor:'red'
+        backgroundColor:'#e74c3c'
     },
     rowText:{
         width:Layout.Window.width * 0.3, 

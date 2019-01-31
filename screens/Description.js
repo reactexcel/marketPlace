@@ -3,12 +3,19 @@ import { ScrollView, StyleSheet } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 import {View,Text} from 'react-native';
 import { LegalDocument } from '../components/LegalDocument';
+import Modal from 'react-native-modalbox';
+import Layout from '../constants/Layout';
+
 
 
 export default class Description extends React.Component {
   static navigationOptions = {
     header:null
-  };
+  };    
+  state ={
+    infoModal:false,
+    val:null
+  }
 
   render() {
     const test = [
@@ -112,7 +119,7 @@ export default class Description extends React.Component {
           </View>
             <ScrollView>
               <LegalDocument
-                onPress={()=>{}}
+                onPress={(val)=>{this.setState({infoModal:true,val})}}
                 data={test}
                 icon={true}
                 text={true}
@@ -121,7 +128,32 @@ export default class Description extends React.Component {
                 stylePadding={{padding:3}}
               />
             </ScrollView>
-        </View>
+            <Modal 
+                swipeToClose={false} 
+                style={[styles.modal3]} 
+                ref={"modal3"} 
+                position={"center"} 
+                onClosed={()=>{this.setState({infoModal:false})}} 
+                isOpen={this.state.infoModal}
+                > 
+                    <View style={{flex:1,borderWidth:1, marginTop:10}}>
+                        <View style={{marginTop:-10,backgroundColor:'white',width:Layout.Window.width * 0.3,marginLeft:5,borderWidth:1,justifyContent:'center',alignItems:'center'}} >
+                            <Text style={{marginTop:-2}} >
+                                {this.state.val !== null ? this.state.val.title :null}
+                            </Text>
+                        </View>
+                        <Text style={{padding:10}}>
+                            Workday Inc. provides entreprise cloud-based applications. The company offers human5%
+                            capital, spend, and financial management, as
+                            well as payroll, initiatives and higher education
+                            the company WORKDAY INC Workday Inc. provides entreprise cloud-based
+                            solutions. Workday serves the finance,
+                            healthcare, manufacturing, education, and
+                            technology industries worldwide.
+                        </Text>
+                    </View>
+                </Modal>
+            </View>
     );
   }
 }
@@ -135,5 +167,10 @@ const styles = StyleSheet.create({
   header:{
     padding:15,
     borderTopWidth:1
-  }
+  },
+  modal3: {
+    // borderRadius:10,
+    height: 240,
+    width: Layout.Window.width * 0.72
+  },
 });
