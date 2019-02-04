@@ -5,7 +5,7 @@ import { createStackNavigator, createMaterialTopTabNavigator } from 'react-navig
 import TabBarIcon from '../components/TabBarIcon';
 import GeneralInformation from '../screens/GeneralInformation';
 import Description from '../screens/Description';
-import SettingsScreen from '../screens/SettingsScreen';
+import Information from '../screens/Information';
 
 const HomeStack = createStackNavigator({
   Home: GeneralInformation,
@@ -54,7 +54,7 @@ LinksStack.navigationOptions = {
 };
 
 const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen,
+  Settings: Information,
 });
 
 SettingsStack.navigationOptions = {

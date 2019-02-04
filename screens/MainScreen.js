@@ -3,7 +3,8 @@ import {
   Text,
   View,
   Button,
-  StyleSheet
+  StyleSheet,
+  TouchableOpacity
 } from 'react-native';
 import { WebBrowser } from 'expo';
 import { padding } from '../constants/Layout';
@@ -12,7 +13,16 @@ import { ListView } from '../components/ListView';
 
 export default class MainScreen extends React.Component {
   static navigationOptions = {
-    title: "My Portfolio",
+    // title: "My Portfolio",
+    headerTitle:(
+      <TouchableOpacity onPress={()=>{console.log("header Details")}}>
+        <View>
+          <Text style={{fontSize:22,fontWeight:'700',color:'white',paddingLeft:10}}>
+            My Portfolio
+          </Text>
+        </View>
+      </TouchableOpacity>
+    ),
     headerStyle: {backgroundColor:'green'},
     headerTitleStyle :{textAlign: 'center',color:'white'},
     headerRight: (
@@ -47,5 +57,8 @@ const styles = StyleSheet.create({
     mainContainer: {
       flex:1
     },
+    headerView:{
+      borderWidth:1
+    }
   });
   

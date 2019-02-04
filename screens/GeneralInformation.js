@@ -31,7 +31,6 @@ class GeneralInformation extends React.Component {
   }
 
   render() {
-    console.log(this.props.modal);
     const data = [{
       title:'Final Terms',
       percentage:'11%'

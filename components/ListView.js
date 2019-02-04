@@ -9,6 +9,7 @@ export class ListView extends React.Component {
     return (
         <FlatList
           data={data}
+          keyExtractor={(item, index) => item}
           renderItem={({ item }) => (
             <View style={{borderBottomWidth:1,flexDirection:'row'}}>
                 <View style={{padding:Layout.sPadding}}>
